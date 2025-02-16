@@ -1,10 +1,10 @@
-function createTextStyle(feature, resolution, labelText, labelFont,
-    labelFill, placement, bufferColor,
-    bufferWidth) {
+var createTextStyle = function(feature, resolution, labelText, labelFont,
+                               labelFill, placement, bufferColor,
+                               bufferWidth) {
 
     if (feature.hide || !labelText) {
-        return;
-    }
+        return; 
+    } 
 
     if (bufferWidth == 0) {
         var bufferStyle = null;
@@ -12,9 +12,9 @@ function createTextStyle(feature, resolution, labelText, labelFont,
         var bufferStyle = new ol.style.Stroke({
             color: bufferColor,
             width: bufferWidth
-        });
+        })
     }
-
+    
     var textStyle = new ol.style.Text({
         font: labelFont,
         text: labelText,
@@ -25,13 +25,13 @@ function createTextStyle(feature, resolution, labelText, labelFont,
         placement: placement,
         maxAngle: 0,
         fill: new ol.style.Fill({
-            color: labelFill
+          color: labelFill
         }),
         stroke: bufferStyle
     });
 
     return textStyle;
-}
+};
 
 function stripe(stripeWidth, gapWidth, angle, color) {
     var canvas = document.createElement('canvas');
